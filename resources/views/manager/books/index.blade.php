@@ -55,7 +55,7 @@
                                         <td>{{$book->group->category->name}}</td>
                                         <td>{{$book->group->name}}</td>
                                         <td class="text-white">
-                                            {!! Form::open(['method'=>'DELETE', 'route'=>['group.destroy', $book->id]]) !!}
+                                            {!! Form::open(['method'=>'DELETE', 'route'=>['books.destroy', $book->id]]) !!}
                                             <a class="btn btn-success" href="{{url('manager/books/'.$book->id)}}"><span class="mdi mdi-eye show"></span></a>
                                             <a class="btn btn-warning" href="{{url('manager/books/'.$book->id.'/edit')}}"><span class="edit mdi mdi-file-document-edit"></span></a>
                                             <button data-toggle="tooltip" data-placement="top" title="Delete" type="submit" class="btn btn-danger"

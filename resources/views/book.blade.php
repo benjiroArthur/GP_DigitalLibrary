@@ -34,7 +34,7 @@
 
                 <div class="col-sm-12 col-lg-5 col-md-5">
                     <div class="row">
-                        <div class="col-sm-6 col-md-6 co-lg-6">
+                        <div class="col-sm-4 col-md-6 co-lg-6">
                             <hr>
                             <p>Author:</p>
                             <hr>
@@ -46,7 +46,7 @@
                             <hr>
                         </div>
 
-                        <div class="col-sm-6 col-md-6 co-lg-6">
+                        <div class="col-sm-4 col-md-6 co-lg-6">
                             <hr>
                             <p>{{$book->author}}</p>
                             <hr>
@@ -61,9 +61,9 @@
 
                 </div>
 
-                <div class="col-sm-12 col-lg-4 col-md-4">
+                <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-sm-5 col-md-6 col-lg-6">
                             <hr>
                             <p id="ben">Reviews <span class="mdi mdi-pen"></span>:</p>
                             <hr>
@@ -73,7 +73,7 @@
                             <hr>
                         </div>
 
-                        <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-sm-5 col-md-6 col-lg-6">
                             <hr>
                             <p id="ben">{{($book->reviews->count())}}</p>
                             <hr>
@@ -312,11 +312,6 @@
             $(document).ready(function(){
                 loadComment();
             });
-
-            // setTimeout(function()
-            // {
-            //     loadComment();
-            // },3000);
 
 
         </script>

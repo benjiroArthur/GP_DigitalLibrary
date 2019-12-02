@@ -51,19 +51,6 @@
                 </div>
 
 
-
-                {{--<div class="row pr-5 pl-5 justify-content-center mt-2">--}}
-                    {{--<div class="col-sm-12 col-lg-2">--}}
-                        {{--<a class="text-decoration-none" onclick="showBook(id);" id="category" href="#">--}}
-                            {{--<div class="card mt-2 mr-1 text-center" style="color: #09123e; border:1px solid #09123e">--}}
-                                {{--<div class="card-img">--}}
-                                    {{--<img class="img-thumbnail" src="" alt="">--}}
-                                {{--</div>--}}
-                                    {{--title--}}
-                            {{--</div>--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
             </div>
         </div>
     </div>
@@ -129,14 +116,7 @@
             function showBook(bookid)
             {
                 window.location.href = '{{url("/book/")}}/'+bookid;
-                //alert('yes');
-                {{--$.ajax({--}}
-                    {{--type:"GET",--}}
-                    {{--url:"{{url('/book/')}}/"+bookid,--}}
-                    {{--headers: {--}}
-                        {{--'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')--}}
-                    {{--}--}}
-                {{--});--}}
+
             }
 
             function getBooks(groupId)

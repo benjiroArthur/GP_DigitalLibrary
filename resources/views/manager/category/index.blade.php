@@ -15,7 +15,7 @@
                     All Categories
                 </li>
             </ol>
-            {{--<h4 class="page-title">All Categories</h4>--}}
+
         </div>
     </div>
 </div>

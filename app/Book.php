@@ -7,9 +7,9 @@ use Illuminate\Support\Str;
 
 class Book extends Model
 {
-    protected $fillable = ['title', 'author', 'cover_image', 'file_name', 'category_id', 'group_id', 'year_of_publication'];
+   protected $fillable = ['title', 'author', 'cover_image', 'file_name', 'group_id', 'year_of_publication'];
 
-    protected $with = ['reviews'];
+   protected $with = ['reviews'];
 
    protected $withCount = ['reviews'];
 

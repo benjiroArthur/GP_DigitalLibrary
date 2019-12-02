@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label for="name">Group Name</label>
                             <input type="text" name="name" parsley-trigger="change" required
-                                   placeholder="Category Name" class="form-control" id="name" value="{{$group->name}}">
+                                   placeholder="Group Name" class="form-control" id="name" value="{{$group->name}}">
                         </div>
 
                         <div class="form-group">

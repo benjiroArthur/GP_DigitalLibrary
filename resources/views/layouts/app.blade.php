@@ -18,8 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{asset('css/vendor.bundle.base.css')}}" rel="stylesheet">
-    <link href="{{asset('css/vendor.bundle.addons.css')}}" rel="stylesheet">
+    {{----}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style1.css') }}" rel="stylesheet">
     <link href="{{ asset('css/iconfonts/flag-icon-css/css/flag-icon.min.css') }}" rel="stylesheet">
@@ -69,8 +68,6 @@
     <!-- Scripts -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    {{--<script src="{{asset('js/vendor.bundle.base.js')}}"></script>--}}
-    {{--<script src="{{asset('js/vendor.bundle.addons.js')}}"></script>--}}
     <script src="{{asset('js/script.js')}}"></script>
     <script src="{{asset('js/navbar_script.js')}}"></script>
     @yield('script')
@@ -81,10 +78,6 @@
                 $('.alert').fadeOut('fast');
             },3000);
 
-            // setTimeout(function()
-            // {
-            //     $('#notify').reload();
-            // },300);
         });
     </script>
 
