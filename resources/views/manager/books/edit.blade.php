@@ -12,7 +12,7 @@
                         <a href="#">Books</a>
                     </li>
                     <li class="breadcrumb-item active">
-                        Add Books
+                        Edit Books
                     </li>
                 </ol>
                 {{--<h4 class="page-title">Add Users</h4>--}}
@@ -26,7 +26,7 @@
             <div class="card-box">
 
 
-                <h4 class="header-title m-t-0 text-center">Add Books</h4>
+                <h4 class="header-title m-t-0 text-center">Edit Books</h4>
 
                 {!! Form::open(['action' => ['BookController@update', $book->id], 'method' => 'POST', 'enctype' => 'multipart/form-data','files'=>'true']) !!}
                 {{method_field('PUT')}}
@@ -60,18 +60,19 @@
                                 <label for="category_id">Category</label>
                                 <select onchange="getGroup();" type="text" name="category_id" required class="form-control" id="category_id">
                                     <option value="{{$book->group->category->id}}">{{$book->group->category->name}}</option>
-                                    @if(count($categories) > 0)
-                                        @foreach($categories as $category)
+
+                                        @forelse($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
-                                    @endif
+                                        @empty
+                                        @endforelse
+
 
                                 </select>
 
                             </div>
 
                             <div class="form-group">
-                                <label for="gender">Group</label>
+                                <label for="group_id">Group</label>
                                 <select type="text" name="group_id" required class="form-control" id="group_id">
                                     <option value="{{$book->group->id}}">{{$book->group->name}}</option>
                                 </select>

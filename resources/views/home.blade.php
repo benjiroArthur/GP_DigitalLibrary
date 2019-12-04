@@ -55,8 +55,12 @@
         </div>
     </div>
 
-    @section('script')
-        <script>
+
+
+@endsection
+
+@section('script')
+    <script>
 
         function showSpinner(id,spinnerId)
         {
@@ -69,95 +73,93 @@
             $(spinnerId).remove();
         }
 
-            function getGroup(catId)
-            {
-                showSpinner(".group-div", '222');
+        function getGroup(catId)
+        {
+            showSpinner(".group-div", '222');
 
-                $.ajax({
-                    type:"GET",
-                    url:"{{url('/category-group/')}}/"+catId,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                    },
-                    cache:false,
-                    success:function(data){
-                        var len = data.length;
-                        if($(".group-div").hasClass("hidden"))
-                        {
-                            $(".group-div").removeClass("hidden")
-                        }
-                        $(".books-div").empty();
-                        $(".group-div").empty();
-
-
-                        for(var i = 0; i < len; i++)
-                        {
-                            var id = data[i]['id'];
-                            var name = data[i]['name'];
-
-                            $(".group-div").append('<div class="col-sm-6 col-lg-2">\n' +
-                                "                                <a class=\"text-decoration-none\" onclick=\"getBooks("+id+");\" id=\"category\" href=\"#\">\n" +
-                                "                                    <div class=\"card mt-2 mr-1 text-center\" style=\"color: #09123e; border:1px solid #09123e\">\n" +
-                                "                                        <div class=\"card-img\">\n" +
-                                "                                            <span class=\"mdi mdi-book-multiple\"></span>\n" +
-                                "                                        </div>\n" +
-                                "                                        <div class=\"groups\">\n" +
-                                "\n" +name+
-                                "                                        </div>\n" +
-                                "                                    </div>\n" +
-                                "                                </a>\n" +
-                                "                            </div>");
-                        }
+            $.ajax({
+                type:"GET",
+                url:"{{url('/category-group/')}}/"+catId,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                },
+                cache:false,
+                success:function(data){
+                    var len = data.length;
+                    if($(".group-div").hasClass("hidden"))
+                    {
+                        $(".group-div").removeClass("hidden")
                     }
-                });
-            }
+                    $(".books-div").empty();
+                    $(".group-div").empty();
 
 
-            function showBook(bookid)
-            {
-                window.location.href = '{{url("/book/")}}/'+bookid;
+                    for(var i = 0; i < len; i++)
+                    {
+                        var id = data[i]['id'];
+                        var name = data[i]['name'];
 
-            }
-
-            function getBooks(groupId)
-            {
-                showSpinner(".books-div", '223');
-
-                $.ajax({
-                    type:"GET",
-                    url:"{{url('/group-books/')}}/"+groupId,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                    },
-                    cache:false,
-                    success:function(data){
-                        var len = data.length;
-
-                        $(".books-div").empty();
-
-
-                        for(var i = 0; i < len; i++)
-                        {
-                            var id = data[i]['id'];
-                            var title = data[i]['title'];
-                            var cover = data[i]['cover_image']
-
-                            $(".books-div").html('<div class="col-sm-12 col-lg-2">\n' +
-                                '                        <a class="text-decoration-none" onclick="showBook(' + id + ');" id="category" href="#">\n' +
-                                '                            <div class="card mt-2 mr-1 text-center" style="color: #09123e; border:1px solid #09123e">\n' +
-                                '                                <div class="card-img">\n' +
-                                '                                    <img class="img-thumbnail" src="'+ cover +'" alt="">\n' +
-                                '                                </div>\n' +
-                                '                                ' +   title + '\n' +
-                                '                            </div>\n' +
-                                '                        </a>\n' +
-                                '                    </div>');
-                        }
+                        $(".group-div").append('<div class="col-sm-6 col-lg-2">\n' +
+                            "                                <a class=\"text-decoration-none\" onclick=\"getBooks("+id+");\" id=\"category\" href=\"#\">\n" +
+                            "                                    <div class=\"card mt-2 mr-1 text-center\" style=\"color: #09123e; border:1px solid #09123e\">\n" +
+                            "                                        <div class=\"card-img\">\n" +
+                            "                                            <span class=\"mdi mdi-book-multiple\"></span>\n" +
+                            "                                        </div>\n" +
+                            "                                        <div class=\"groups\">\n" +
+                            "\n" +name+
+                            "                                        </div>\n" +
+                            "                                    </div>\n" +
+                            "                                </a>\n" +
+                            "                            </div>");
                     }
-                });
-            }
+                }
+            });
+        }
 
-        </script>
-    @endsection
 
+        function showBook(bookid)
+        {
+            window.location.href = '{{url("/book/")}}/'+bookid;
+
+        }
+
+        function getBooks(groupId)
+        {
+            showSpinner(".books-div", '223');
+
+            $.ajax({
+                type:"GET",
+                url:"{{url('/group-books/')}}/"+groupId,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                },
+                cache:false,
+                success:function(data){
+                    var len = data.length;
+
+                    $(".books-div").empty();
+
+
+                    for(var i = 0; i < len; i++)
+                    {
+                        var id = data[i]['id'];
+                        var title = data[i]['title'];
+                        var cover = data[i]['cover_image']
+
+                        $(".books-div").html('<div class="col-sm-12 col-lg-2">\n' +
+                            '                        <a class="text-decoration-none" onclick="showBook(' + id + ');" id="category" href="#">\n' +
+                            '                            <div class="card mt-2 mr-1 text-center" style="color: #09123e; border:1px solid #09123e">\n' +
+                            '                                <div class="card-img">\n' +
+                            '                                    <img class="img-thumbnail" src="'+ cover +'" alt="">\n' +
+                            '                                </div>\n' +
+                            '                                ' +   title + '\n' +
+                            '                            </div>\n' +
+                            '                        </a>\n' +
+                            '                    </div>');
+                    }
+                }
+            });
+        }
+
+    </script>
 @endsection

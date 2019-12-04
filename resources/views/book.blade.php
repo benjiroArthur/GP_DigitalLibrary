@@ -295,8 +295,8 @@
                             var name = data[i]['user']['name'];
                             var date = data[i]['created_at'];
                             $('#comments').append('<div class="card mb-2" style="border: 1px solid grey; border-radius: 10px; font-size: x-small">\n' +
-                                '                    <p class="p-2">'+comment+'</p>\n' +
-                                '                    <div class="text-center">By: '+name+'</div>\n' +
+                                '                    <p class="p-2"><b>'+name+'</b></p>\n' +
+                                '                    <div class="text-center" style="font-size: 15px">'+comment+'</div>\n' +
                                 '                    <div class="p-2 text-danger">'+date+'</div>\n' +
                                 '                </div>');
 
